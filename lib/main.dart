@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
-import './question.dart';
-import './answer.dart';
+import 'Question.dart';
+import 'Answer.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,17 +23,17 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
+    var questions = const [
       {
-        'qustionText': 'What\'s your favorit color?',
+        'questionText': 'What\'s your favorit color?',
         'answers': ['Black', 'Red', 'Green'],
       },
       {
-        'qustionText': 'What\'s is your favorit food',
+        'questionText': 'What\'s is your favorit food',
         'answers': ['French fries', 'Soup', 'Pancakes'],
       },
       {
-        'qustionText': 'Wher you live?',
+        'questionText': 'Wher you live?',
         'answers': ['Riga', 'Jelgava', 'Valmiera']
       },
     ];
