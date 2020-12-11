@@ -21,16 +21,16 @@ class MyAppState extends State<MyApp> {
         {'text': 'Blue', 'score': 5},
         {'text': 'Orange', 'score': 3},
         {'text': 'White', 'score': 2},
-        {'text': 'Grey', 'score': 8}
+        {'text': 'Green', 'score': 1}
       ],
     },
     {
-      'questionText': 'What\'s is your favorit food',
+      'questionText': 'What\'s is your favorit food?',
       'answers': [
         {'text': 'French fries', 'score': 10},
         {'text': 'Soup', 'score': 2},
         {'text': 'Pancakes', 'score': 5},
-        {'text': 'Salats', 'score': 1},
+        {'text': 'Salata', 'score': 1},
         {'text': 'Cake', 'score': 8},
       ],
     },
@@ -42,6 +42,16 @@ class MyAppState extends State<MyApp> {
         {'text': 'Mountain Village', 'score': 4},
         {'text': 'Brazilian Jungles', 'score': 3},
         {'text': 'Beach', 'score': 2}
+      ]
+    },
+    {
+      'questionText': 'What is your favorite free time activity?',
+      'answers': [
+        {'text': 'Sleeping', 'score': 10},
+        {'text': 'Watching TV', 'score': 9},
+        {'text': 'Biking', 'score': 3},
+        {'text': 'Draiving a car', 'score': 7},
+        {'text': 'Hiking', 'score': 1}
       ]
     },
   ];
@@ -58,12 +68,21 @@ class MyAppState extends State<MyApp> {
     }
   }
 
+  void _restart() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text('Android App'),
+          backgroundColor: Colors.red[300],
+          title: Text('Test: Are you a nature person?'),
         ),
         body: _questionIndex < _questions.length
             ? Quiz(
@@ -71,7 +90,7 @@ class MyAppState extends State<MyApp> {
                 questionIndex: _questionIndex,
                 questions: _questions,
               )
-            : Result(_totalScore),
+            : Result(_totalScore, _restart),
       ),
     );
   }
